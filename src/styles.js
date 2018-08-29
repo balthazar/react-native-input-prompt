@@ -50,7 +50,7 @@ export default StyleSheet.create({
 			ios: {
 				borderRadius: 5,
 				width: "90%",
-				backgroundColor: "rgba(166, 170, 172, 0.9)"
+				backgroundColor: "#acafb1"
 			},
 			android: {
 				width: "100%"
