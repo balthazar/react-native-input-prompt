@@ -3,46 +3,58 @@ import { StyleSheet, Platform, Dimensions } from "react-native";
 export default StyleSheet.create({
 	screenOverlay: {
 		height: Dimensions.get("window").height,
-		backgroundColor: "black",
-		opacity: 0.8
+		backgroundColor: "rgba(0, 0, 0, 0.8)",
+		opacity: 1
 	},
 	dialogPrompt: {
 		...Platform.select({
 			ios: {
-				opacity: 0.9,
+				opacity: 1,
 				backgroundColor: "rgb(222,222,222)",
-				borderRadius: 15
+				borderRadius: 13,
+				width: 270,
 			},
 			android: {
-				borderRadius: 5,
-				backgroundColor: "white"
+				borderRadius: 3,
+				backgroundColor: "white",
+	      elevation: 4,
+				padding: 16,
+	      minWidth: 300
 			}
 		}),
 		marginHorizontal: 20,
 		marginTop: 150,
-		padding: 10,
-
+		//
+		alignSelf: 'center',
 		flexDirection: "column",
 		justifyContent: "space-between",
 		alignItems: "center"
 	},
 	title: {
+		...Platform.select({
+			ios: {
+				padding: 10,
+				paddingBottom: 0
+			},
+		}),
 		fontWeight: "bold",
-		fontSize: 26,
+		fontSize: 20,
 		color: "black"
 	},
 	textInput: {
 		height: 40,
-		width: "100%",
 		paddingHorizontal: 10,
 		textAlignVertical: "bottom",
 		margin: 20,
 		...Platform.select({
 			ios: {
-				borderRadius: 15,
+				borderRadius: 5,
+				width: "90%",
 				backgroundColor: "rgba(166, 170, 172, 0.9)"
 			},
-			android: {}
+			android: {
+				width: "100%"
+			}
 		})
 	},
 	buttonsOuterView: {
@@ -59,7 +71,7 @@ export default StyleSheet.create({
 		...Platform.select({
 			ios: {
 				width: 1,
-				backgroundColor: "rgba(0,0,0,0.5)"
+				backgroundColor: "#a7a6a7"
 			},
 			android: {
 				width: 20
@@ -71,6 +83,7 @@ export default StyleSheet.create({
 		...Platform.select({
 			ios: {
 				borderTopWidth: 0.5,
+				borderColor: "#a7a6a7",
 				flex: 1
 			},
 			android: {}
