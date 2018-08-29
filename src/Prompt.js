@@ -17,6 +17,7 @@ export default class Prompt extends Component {
 		visible: PropTypes.bool.isRequired,
 		secureTextEntry: PropTypes.bool,
 		value: PropTypes.string,
+		keyboardType: PropTypes.string,
 		placeholder: PropTypes.string.isRequired,
 		cancelText: PropTypes.string,
 		submitText: PropTypes.string,
@@ -35,6 +36,7 @@ export default class Prompt extends Component {
 		visible: false,
 		secureTextEntry: false,
 		value: "",
+		keyboardType: "default",
 		placeholder: "Placeholder",
 		cancelText: "Cancel",
 		submitText: "Submit",
@@ -88,6 +90,9 @@ export default class Prompt extends Component {
 							onSubmitEditing={this._onSubmit.bind(this)}
 							secureTextEntry={this.props.secureTextEntry}
 							autoFocus={true}
+							autoCorrect={false}
+							autoCapitalize="none"
+							keyboardType={this.props.keyboardType}
 							value={this.props.value}
 							ref={(e) => this.inputField = e}
 						/>
