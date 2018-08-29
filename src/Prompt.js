@@ -15,6 +15,8 @@ export default class Prompt extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
 		visible: PropTypes.bool.isRequired,
+		secureTextEntry: PropTypes.bool,
+		value: PropTypes.string,
 		placeholder: PropTypes.string.isRequired,
 		cancelText: PropTypes.string,
 		submitText: PropTypes.string,
@@ -31,6 +33,8 @@ export default class Prompt extends Component {
 	static defaultProps = {
 		title: "Title",
 		visible: false,
+		secureTextEntry: false,
+		value: "",
 		placeholder: "Placeholder",
 		cancelText: "Cancel",
 		submitText: "Submit",
@@ -43,10 +47,10 @@ export default class Prompt extends Component {
 		onSubmit: () => {},
 		onCancel: () => {}
 	};
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			value: ""
+			value: this.props.value || ""
 		};
 	}
 	_onChangeText(value) {
@@ -82,7 +86,10 @@ export default class Prompt extends Component {
 							style={styles.textInput}
 							onChangeText={this._onChangeText.bind(this)}
 							onSubmitEditing={this._onSubmit.bind(this)}
+							secureTextEntry={this.props.secureTextEntry}
 							autoFocus={true}
+							value={this.props.value}
+							ref={(e) => this.inputField = e}
 						/>
 						<View style={styles.buttonsOuterView}>
 							<View style={styles.buttonsInnerView}>
