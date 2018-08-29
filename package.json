@@ -1,5 +1,5 @@
 {
-	"name": "react-native-input-prompt",
+	"name": "os-react-native-input-prompt",
 	"version": "1.0.0",
 	"description":
 		"A cross-platform user input prompt component for React Native.",
